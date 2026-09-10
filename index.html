@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快猫网-热门影视动漫资源与在线观看指南</title>
+    <meta name="description" content="快猫网是一个专注提供热门影视、动漫、综艺资源推荐及观看指南的综合性娱乐导航网站，帮助用户快速找到感兴趣的内容，了解不同平台的观看方式与更新动态。">
+    <meta name="keywords" content="快猫网,影视推荐,动漫资源,在线观看,新番更新,热门电影,娱乐导航">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f5f3f0;
+            color: #2d2a26;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .site-header {
+            background: #1a1a2e;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #f7931e;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            color: #ccc;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #fff;
+            border-bottom-color: #f7931e;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 4px;
+            max-width: 260px;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 6px 12px;
+            font-size: 14px;
+            flex: 1;
+            background: transparent;
+        }
+
+        .search-box button {
+            background: #f7931e;
+            border: none;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #e07f0a;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 60px 0 50px;
+            position: relative;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-copy {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-copy h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .hero-copy h1 span {
+            color: #f7931e;
+        }
+
+        .hero-copy p {
+            font-size: 17px;
+            color: #c7d0dd;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hero-visual {
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-poster-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .poster-card-s {
+            background: #2a3a5e;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .poster-card-s:hover {
+            transform: translateY(-4px);
+        }
+
+        .poster-card-s .ph {
+            height: 120px;
+            background: linear-gradient(145deg, #3d5a80, #293a56);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .poster-card-s .pt {
+            font-size: 13px;
+            color: #d0d8e8;
+        }
+
+        .poster-card-s .pt-tag {
+            font-size: 11px;
+            background: #f7931e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 4px;
+            display: inline-block;
+            color: #fff;
+        }
+
+        /* Section */
+        .section {
+            padding: 45px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-header h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 4px;
+            height: 24px;
+            background: #f7931e;
+            border-radius: 2px;
+        }
+
+        .section-link {
+            color: #f7931e;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .section-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .content-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-thumb {
+            height: 150px;
+            background: #e8e0d8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #b8a99a;
+        }
+
+        .card-thumb .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .card-thumb .rating {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #ffb703;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-info h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-info .meta {
+            font-size: 13px;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-info .type-tag {
+            display: inline-block;
+            background: #f0ece6;
+            color: #5a4e42;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        /* Two column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Update list */
+        .update-list {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            gap: 12px;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-num {
+            background: #f7931e;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .update-item:nth-child(n+4) .update-num {
+            background: #d9d2c8;
+            color: #5a4e42;
+        }
+
+        .update-title {
+            flex: 1;
+            font-size: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .update-eps {
+            font-size: 13px;
+            color: #f7931e;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        /* Sidebar card */
+        .side-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }
+
+        .side-card h3 {
+            font-size: 18px;
+            margin-bottom: 14px;
+            color: #1a1a2e;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f7931e;
+            display: inline-block;
+        }
+
+        .rank-list {
+            counter-reset: rank;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f2f0ec;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-item::before {
+            counter-increment: rank;
+            content: counter(rank);
+            background: #e8e0d8;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: #6b5d4e;
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(-n+3)::before {
+            background: #f7931e;
+            color: #fff;
+        }
+
+        .rank-title {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Guide section */
+        .guide-section {
+            background: #fff;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .guide-block h4 {
+            font-size: 17px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .guide-block p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .guide-list {
+            margin-top: 10px;
+        }
+
+        .guide-list li {
+            padding: 6px 0;
+            font-size: 14px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            position: absolute;
+            left: 4px;
+            color: #f7931e;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #f5f3f0;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+        }
+
+        .faq-item h4 {
+            font-size: 17px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand span {
+            color: #f7931e;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer-links li {
+            padding: 4px 0;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f7931e;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy h1 {
+                font-size: 32px;
+            }
+
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav {
+                gap: 16px;
+                margin: 10px 0;
+            }
+
+            .search-box {
+                width: 100%;
+                max-width: none;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-inner {
+                flex-direction: column;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .card-thumb {
+                height: 120px;
+            }
+
+            .section {
+                padding: 30px 0;
+            }
+
+            .hero-poster-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .poster-card-s .ph {
+                height: 90px;
+                font-size: 20px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo-area">
+            <div class="logo-icon">快</div>
+            <div class="logo-text">快猫<span>网</span></div>
+        </div>
+        <nav class="main-nav">
+            <a href="#" class="active">首页</a>
+            <a href="#">影视</a>
+            <a href="#">动漫</a>
+            <a href="#">综艺</a>
+            <a href="#">榜单</a>
+            <a href="#">专题</a>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索感兴趣的内容...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-copy">
+            <h1>快猫网，<span>一站式</span>娱乐内容发现平台</h1>
+            <p>聚合热门影视、动漫、综艺的动态与推荐，提供清晰的内容导航和观看指引，让每一次选择都更轻松、更高效。</p>
+            <div class="hero-badges">
+                <span class="hero-badge">🔥 今日热播榜</span>
+                <span class="hero-badge">📺 新番速递</span>
+                <span class="hero-badge">🎬 高分片单</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-poster-grid">
+                <div class="poster-card-s">
+                    <div class="ph">🎬</div>
+                    <div class="pt">热映电影</div>
+                    <span class="pt-tag">更新</span>
+                </div>
+                <div class="poster-card-s">
+                    <div class="ph">📺</div>
+                    <div class="pt">人气剧集</div>
+                    <span class="pt-tag">热门</span>
+                </div>
+                <div class="poster-card-s">
+                    <div class="ph">🎌</div>
+                    <div class="pt">新番动漫</div>
+                    <span class="pt-tag">连载</span>
+                </div>
+                <div class="poster-card-s">
+                    <div class="ph">🎤</div>
+                    <div class="pt">热门综艺</div>
+                    <span class="pt-tag">热播</span>
+                </div>
+                <div class="poster-card-s">
+                    <div class="ph">📖</div>
+                    <div class="pt">漫画推荐</div>
+                    <span class="pt-tag">精选</span>
+                </div>
+                <div class="poster-card-s">
+                    <div class="ph">🎮</div>
+                    <div class="pt">游戏实况</div>
+                    <span class="pt-tag">专题</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 今日热播精选</h2>
+                <a href="#" class="section-link">查看完整榜单 →</a>
+            </div>
+            <div class="card-grid">
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #3a5a78;">🎞️
+                        <span class="tag">电影</span>
+                        <span class="rating">★ 8.7</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>星际漫游者</h3>
+                        <div class="meta"><span>科幻 / 冒险</span><span>2025</span></div>
+                        <span class="type-tag">院线热映</span>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #6a4a3a;">📺
+                        <span class="tag">剧集</span>
+                        <span class="rating">★ 8.2</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>迷雾追踪</h3>
+                        <div class="meta"><span>悬疑 / 犯罪</span><span>更新至12集</span></div>
+                        <span class="type-tag">口碑剧</span>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #4a5a6a;">🎌
+                        <span class="tag">动漫</span>
+                        <span class="rating">★ 9.1</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>山海异闻录</h3>
+                        <div class="meta"><span>奇幻 / 国漫</span><span>更新至8集</span></div>
+                        <span class="type-tag">新番</span>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #5a4a6a;">🎤
+                        <span class="tag">综艺</span>
+                        <span class="rating">★ 7.9</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>音乐合伙人</h3>
+                        <div class="meta"><span>音乐 / 真人秀</span><span>周六更新</span></div>
+                        <span class="type-tag">热播</span>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #4a6a5a;">📖
+                        <span class="tag">漫画</span>
+                        <span class="rating">★ 8.5</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>都市奇缘</h3>
+                        <div class="meta"><span>恋爱 / 都市</span><span>连载中</span></div>
+                        <span class="type-tag">人气</span>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #6a5a4a;">🎬
+                        <span class="tag">经典</span>
+                        <span class="rating">★ 9.3</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>时光回廊</h3>
+                        <div class="meta"><span>剧情 / 治愈</span><span>重映</span></div>
+                        <span class="type-tag">高分</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #efece7; padding: 40px 0;">
+        <div class="container two-col">
+            <div>
+                <div class="section-header">
+                    <h2>📌 最新更新动态</h2>
+                    <a href="#" class="section-link">全部动态 →</a>
+                </div>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-num">1</span>
+                        <span class="update-title">《迷雾追踪》第12集已上线</span>
+                        <span class="update-eps">刚刚</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-num">2</span>
+                        <span class="update-title">《山海异闻录》第8集更新</span>
+                        <span class="update-eps">30分钟前</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-num">3</span>
+                        <span class="update-title">《星际漫游者》发布导演剪辑版</span>
+                        <span class="update-eps">2小时前</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-num">4</span>
+                        <span class="update-title">《音乐合伙人》新一期预告</span>
+                        <span class="update-eps">4小时前</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-num">5</span>
+                        <span class="update-title">《都市奇缘》漫画第45话</span>
+                        <span class="update-eps">今天</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-num">6</span>
+                        <span class="update-title">《时光回廊》重映口碑出炉</span>
+                        <span class="update-eps">今天</span>
+                    </div>
+                </div>
+            </div>
+            <aside>
+                <div class="section-header">
+                    <h2>📊 热门排行榜</h2>
+                </div>
+                <div class="side-card">
+                    <h3>本周热度 TOP10</h3>
+                    <div class="rank-list">
+                        <div class="rank-item"><span class="rank-title">星际漫游者</span></div>
+                        <div class="rank-item"><span class="rank-title">迷雾追踪</span></div>
+                        <div class="rank-item"><span class="rank-title">山海异闻录</span></div>
+                        <div class="rank-item"><span class="rank-title">音乐合伙人</span></div>
+                        <div class="rank-item"><span class="rank-title">都市奇缘</span></div>
+                        <div class="rank-item"><span class="rank-title">时光回廊</span></div>
+                        <div class="rank-item"><span class="rank-title">热血竞技场</span></div>
+                        <div class="rank-item"><span class="rank-title">深夜食堂日记</span></div>
+                        <div class="rank-item"><span class="rank-title">星际迷航：新纪元</span></div>
+                        <div class="rank-item"><span class="rank-title">侦探事务所</span></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎯 专题策划</h2>
+                <a href="#" class="section-link">更多专题 →</a>
+            </div>
+            <div class="card-grid">
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #3a4a6a;">🎬</div>
+                    <div class="card-info">
+                        <h3>科幻电影年度盘点</h3>
+                        <div class="meta"><span>12部佳作</span><span>专题</span></div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #6a3a4a;">🎌</div>
+                    <div class="card-info">
+                        <h3>2025春季新番导视</h3>
+                        <div class="meta"><span>25部新作</span><span>专题</span></div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #3a6a5a;">📺</div>
+                    <div class="card-info">
+                        <h3>高分悬疑剧清单</h3>
+                        <div class="meta"><span>10部必看</span><span>专题</span></div>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-thumb" style="background: #6a5a3a;">🎤</div>
+                    <div class="card-info">
+                        <h3>音乐综艺进化史</h3>
+                        <div class="meta"><span>深度解析</span><span>专题</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #efece7;">
+        <div class="container">
+            <div class="section-header">
+                <h2>📖 观影与追番指南</h2>
+            </div>
+            <div class="guide-section">
+                <p style="font-size: 15px; color: #555;">快猫网不仅提供内容推荐，也致力于帮助用户更高效地找到适合的观看渠道和方式。这里整理了一些实用建议：</p>
+                <div class="guide-content">
+                    <div class="guide-block">
+                        <h4>🎬 如何选择观看平台</h4>
+                        <p>不同内容的版权分散在不同平台，建议根据作品类型和更新习惯选择主用平台：</p>
+                        <ul class="guide-list">
+                            <li>院线电影优先关注官方上线时间与流媒体窗口期</li>
+                            <li>热门剧集可关注平台独播信息，部分支持多平台联播</li>
+                            <li>动漫新番注意放送平台和字幕组更新节奏</li>
+                            <li>综艺节目通常有固定更新日和回放功能</li>
+                        </ul>
+                    </div>
+                    <div class="guide-block">
+                        <h4>📌 追更小技巧</h4>
+                        <p>合理安排追更节奏，避免信息过载，同时不错过重要内容：</p>
+                        <ul class="guide-list">
+                            <li>使用平台订阅或关注功能，开启更新提醒</li>
+                            <li>关注快猫网的每日更新汇总，快速掌握动态</li>
+                            <li>利用周末集中补番，提高观看效率</li>
+                            <li>参考口碑评分再决定是否入坑</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>❓ 常见问题解答</h2>
+            </div>
+            <div class="faq-item">
+                <h4>快猫网是视频播放网站吗？</h4>
+                <p>快猫网是一个内容导航与推荐平台，专注于提供影视、动漫、综艺等内容的资讯、动态和观看指引，帮助用户快速定位感兴趣的内容，并引导至正规授权平台进行观看。</p>
+            </div>
+            <div class="faq-item">
+                <h4>网站上的更新信息准确吗？</h4>
+                <p>我们会尽力汇总各平台公开的更新信息，但具体播出时间仍以各视频平台官方发布为准。建议结合平台提醒使用，获取最准确的更新通知。</p>
+            </div>
+            <div class="faq-item">
+                <h4>如何快速找到想看的类型？</h4>
+                <p>您可以通过顶部导航栏按影视、动漫、综艺等分类浏览，也可以使用搜索功能直接查找内容名称。首页的排行榜和专题推荐也能提供不错的参考。</p>
+            </div>
+            <div class="faq-item">
+                <h4>内容推荐是否有偏好设置？</h4>
+                <p>目前快猫网以通用推荐和热门榜单为主，后续可能会根据用户反馈增加个性化功能。欢迎通过页面底部联系方式提出建议。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">快猫<span>网</span></div>
+                <p class="footer-desc">快猫网致力于打造简洁、高效、有价值的娱乐内容导航平台，聚合影视、动漫、综艺动态，提供信息与推荐服务。所有内容均指向正规观看渠道，尊重版权，支持正版。</p>
+            </div>
+            <div class="footer-links">
+                <h4>快速入口</h4>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">影视推荐</a></li>
+                    <li><a href="#">动漫新番</a></li>
+                    <li><a href="#">综艺热点</a></li>
+                    <li><a href="#">高分榜单</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 快猫网 版权所有 | 本网站仅提供信息导航服务，不存储任何媒体内容
+        </div>
+    </div>
+</footer>
+
+</body>
+                                 </html>
